@@ -8,6 +8,11 @@ router.get('/song', (req, res) => {
 	controller.list(res)
 })
 
+router.get('/funkie', (req, res) => {
+	console.log('Funk called')
+	controller.funk(req,res)
+})
+
 // Details
 router.get('/song/:id([0-9]*)', (req, res) => {
 	controller.details(req,res)
