@@ -1,5 +1,5 @@
 import db from '../Config/mysql.config.js'
-
+let lel = "lel"
 class SongController {
     constructor() {
 console.log("song");
@@ -28,15 +28,16 @@ console.log("song");
     //     })
     // }
 
-    funk = (res) => {
-        const sql = "SELECT title FROM song ORDER BY title"
-	db.query(sql, (err, result) => {
-		if (err) {
-			console.log(err);
-		} else {
-            console.log(result);
-		}
-	})
+    funk = (req, res) => {
+const { title, content, artist_id } = req.body;
+    const sql = "INSERT INTO song (title, content, artist_id) VALUES (?, ?, ?)"
+    db.query(sql, [title, content, artist_id], (err, result) => {
+    if(err) {
+    console.error(err)
+    } else {
+    res.json(result);
     }
+})
+}
 }
 export default SongController

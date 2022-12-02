@@ -1,5 +1,5 @@
 import express from 'express'
-import SongController from '../Controllers/song.contructer.js'
+import SongController from '../Controllers/song.controller.js'
 const router = express.Router()
 const controller = new SongController()
 // List
@@ -8,9 +8,15 @@ router.get('/song', (req, res) => {
 	controller.list(res)
 })
 
-router.get('/funkie', (req, res) => {
-	console.log('Funk called')
+router.post('/funkie', (req, res) => {
+	console.log('funk called')
 	controller.funk(req,res)
+})
+
+router.post('/cre', (req, res) => {
+	console.log('create called')
+	controller.create(req,res)
+	
 })
 
 // Details
