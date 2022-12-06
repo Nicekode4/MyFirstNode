@@ -29,5 +29,28 @@ class UserController {
             res.sendStatus(418)
         }
     }
+
+    update = async (req, res) => {
+        const { id, firstname} = req.body;
+        UserModel.update(
+            { firstname: firstname },
+            { where: { id: id } }
+          )
+          if (firstname) {
+            console.log(firstname, id);
+            res.sendStatus(200)
+          }
+    }
+
+    delete = async (req,res) => {
+        const { id } = req.body;
+        UserModel.destroy({
+            where: {
+                id: id
+            }
+            
+        })
+        res.sendStatus(200)
+    }
 }
 export default UserController

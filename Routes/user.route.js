@@ -15,5 +15,13 @@ UserRouter.get('/users', (req,res) => {
    controller.create(req,res)
 })
 
+UserRouter.put('/users', (req,res) => { 
+   controller.update(req,res)
+})
+
+UserRouter.delete('/users', (req,res) => { 
+   controller.delete(req,res)
+})
+
 
 export default UserRouter
