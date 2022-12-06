@@ -1,6 +1,8 @@
 import express from 'express'
 import SongRouter from './Routes/song.router.js'
 import artistRouter from './Routes/artist.router.js'
+import InitRouter from './Routes/init.router.js'
+import UserRouter from './Routes/user.route.js'
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -16,6 +18,8 @@ app.get('/', (req, res) => {
 
 app.use(SongRouter)
 app.use(artistRouter)
+app.use(InitRouter)
+app.use(UserRouter)
 
 app.listen(port, () => {
 	console.log(`Webserver running on http://localhost:${port}`);
