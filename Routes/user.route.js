@@ -11,4 +11,9 @@ UserRouter.get('/users', (req,res) => {
     controller.details(req,res)
  })
 
+ UserRouter.post('/users', (req,res) => { 
+   controller.create(req,res)
+})
+
+
 export default UserRouter
